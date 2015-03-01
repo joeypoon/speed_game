@@ -2,8 +2,28 @@ $("#startButton").click(function () {
         $("#splashScreen").hide();
         $("#gameCanvas").show();
         makeShape();
-        counter = setInterval(timer, 1000); //1000 will run it every 1 second
+        counter = setInterval(timer, 1000);
+        clickCounter = setInterval(function(){
+            noClick();
+            }, 1000);
     });
+
+var clickCount = 5;
+var clickCounter;
+
+function noClick() {
+    if (clickCount == 0) {
+        alert("Why aren't you clicking? :(");
+        clearInterval(counter);
+        clearInterval(clickCounter);
+    } else {
+        clickCount--;
+    }
+}
+
+function resetClick() {
+    clickCount = 5;
+}
 
 var createdTime = 0;
 var clickedTime = 0;
@@ -24,7 +44,6 @@ function timer() {
     count --;
     if (count <= 0) {
         clearInterval(counter);
-        //counter ended, do something here
         var averageScore = 0;
         for (var i = 0; i < score.length; i++) {
             averageScore += score[i]
@@ -33,7 +52,6 @@ function timer() {
         alert("Your average reaction time is " + averageScore/score.length + " seconds.");
         return;
     }
-  //Do code for showing the number of seconds here
   $("#average").html("You have " + count + " seconds remaining.");
 }
 
@@ -65,4 +83,5 @@ $("#shape").click(function() {
     $("#reactionTime").html("Your reaction time is " + (clickedTime - createdTime)/1000 + " seconds");
     score.push((clickedTime - createdTime)/1000);
     makeShape();
+    resetClick();
 });
