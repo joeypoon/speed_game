@@ -1,3 +1,10 @@
+$("#startButton").click(function () {
+        $("#splashScreen").hide();
+        $("#gameCanvas").show();
+        makeShape();
+        counter = setInterval(timer, 1000); //1000 will run it every 1 second
+    });
+
 var createdTime = 0;
 var clickedTime = 0;
 
@@ -11,8 +18,7 @@ function randomColor() {
 }
 
 var count = 30;
-
-var counter = setInterval(timer, 1000); //1000 will run it every 1 second
+var counter;
 
 function timer() {
     count --;
@@ -24,7 +30,8 @@ function timer() {
             averageScore += score[i]
         }
         $("#average").html("Your average reaction time is " + averageScore/score.length + " seconds.");
-    return;
+        alert("Your average reaction time is " + averageScore/score.length + " seconds.");
+        return;
     }
   //Do code for showing the number of seconds here
   $("#average").html("You have " + count + " seconds remaining.");
@@ -32,8 +39,8 @@ function timer() {
 
 function makeShape () {
     var delay = Math.random() * 500;
-    var randomLeft = Math.round(Math.random() * 460);
-    var randomTop = Math.round(Math.random() * 460);
+    var randomLeft = Math.round(Math.random() * 470);
+    var randomTop = Math.round(Math.random() * 470);
 
     setTimeout(function () {
         $("#shape").css("backgroundColor", randomColor());
@@ -59,5 +66,3 @@ $("#shape").click(function() {
     score.push((clickedTime - createdTime)/1000);
     makeShape();
 });
-
-makeShape();
