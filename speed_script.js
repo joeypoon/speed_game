@@ -46,6 +46,7 @@ function timer() {
     count --;
     if (count <= 0) {
         clearInterval(counter);
+        clearInterval(clickCounter);
         var averageScore = 0;
         for (var i = 0; i < score.length; i++) {
             averageScore += score[i]
