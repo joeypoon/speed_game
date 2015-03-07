@@ -21,3 +21,11 @@ body {
 #gameCanvas {
     display:none;
 }
+
+#splashScreen {
+    margin-top:100px;
+}
+
+#average {
+    margin-top:12px;
+}

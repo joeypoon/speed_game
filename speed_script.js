@@ -1,11 +1,13 @@
+$("#splashScreen").css("margin-top", $(window).height()/3);
+$("#gameCanvas").css("margin-top", $(window).height()/15);
+$("#notClicking").hide();
+
 $("#startButton").click(function () {
         $("#splashScreen").hide();
         $("#gameCanvas").show();
         makeShape();
         counter = setInterval(timer, 1000);
-        clickCounter = setInterval(function(){
-            noClick();
-            }, 1000);
+        clickCounter = setInterval(noClick, 1000);
     });
 
 var clickCount = 5;
@@ -13,7 +15,7 @@ var clickCounter;
 
 function noClick() {
     if (clickCount == 0) {
-        alert("Why aren't you clicking? :(");
+        $("#notClicking").show();
         clearInterval(counter);
         clearInterval(clickCounter);
     } else {

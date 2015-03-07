@@ -7,6 +7,8 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
@@ -17,7 +19,13 @@
     <div id="splashScreen">
         <center><h1>Speed</h1>
         <p>Test your reaction time!  Click the shapes as fast as you can.</p>
-        <button id="startButton">Start!</button></center>
+        <button type="button" class="btn btn-success" id="startButton"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Play</button></center>
+    </div>
+
+    <div class="alert alert-danger" role="alert" id="notClicking">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Why aren't you clicking? :(</span>
+        Why are't you clicking? :(
     </div>
 
     <div id="gameCanvas">
@@ -30,6 +38,8 @@
 
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="speed_script.js"></script>
 </body>
 </html>
